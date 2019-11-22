@@ -1,0 +1,86 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+#include<stdlib.h>
+void main()
+{
+clrscr();
+char *nm;
+char chos1,chos2;
+int ch;
+int yy=0,cc=0;
+cout<<"My Name Is GameBot , What Is Your Name ? :  ";
+gets(nm);
+cout<<endl;
+cout<<"WELCOME    ...   "<<nm<<endl<<endl;
+cout<<"Choose hand to play"<<endl;
+cout<<endl<<"type R for rock, P for paper, S for scissors (otherwise  to end game)"<<endl<<endl;
+cin>>chos1;
+while(chos1=='R' || chos1=='P' || chos1=='S')
+{
+ch=random(3);
+if(ch==0) chos2='R';
+if(ch==1) chos2='P';
+if(ch==2) chos2='S';
+
+switch(chos1)
+{
+case 'R':
+if(chos2=='S')
+{
+cout<<"YOU WIN ...  COMPUTER CHOSE S "<<endl;
+yy++;
+}
+if(chos2=='R')
+cout<<"EQUAL ...  COMPUTER CHOSE R "<<endl;
+if(chos2=='P')
+{
+cout<<"YOU LOSE ...  COMPUTER CHOSE P "<<endl;
+cc++;
+}
+break;
+
+case 'P':
+if(chos2=='R')
+{
+cout<<"YOU WIN ...  COMPUTER CHOSE R "<<endl;
+yy++;
+}
+if(chos2=='P')
+cout<<"EQUAL ...  COMPUTER CHOSE P "<<endl;
+if(chos2=='S')
+{
+cout<<"YOU LOSE ...  COMPUTER CHOSE S "<<endl;
+cc++;
+}
+break;
+
+case 'S':
+if(chos2=='R')
+{
+cout<<"YOU LOSE ...  COMPUTER CHOSE R "<<endl;
+yy++;
+}
+if(chos2=='S')
+cout<<"EQUAL ...  COMPUTER CHOSE S "<<endl;
+if(chos2=='P')
+{
+cout<<"YOU WIN ...  COMPUTER CHOSE P "<<endl;
+cc++;
+}
+break;
+}
+cout<<endl<<"PLAY AGIN ..."<<endl;
+cout<<endl<<"type R for rock, P for paper, S for scissors (otherwise  to end game)"<<endl<<endl;
+cin>>chos1;
+}
+cout<<"thank you for playing ,"<<nm<<endl;
+cout<<endl<<"your score ="<<yy<<" ... computer score = "<<cc<<endl;
+if(yy>cc)
+cout<<endl<<"you win .............................. "<<endl;
+else if(cc>yy)
+cout<<endl<<"you lose .............................. "<<endl;
+else
+cout<<endl<<"equal .............................. "<<endl;
+getch();
+}
